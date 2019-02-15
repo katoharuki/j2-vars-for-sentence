@@ -1,0 +1,9 @@
+# tnsnames.ora の配布
+# 実際はplaybookとvarsを分ける。
+- name: set up tnsnames.ora using <playbookrole XXXX>'s vars
+  template:
+    dest: /etc/tnsnames.ora
+    src: tnsnames.ora.j2
+    owner: root
+    group: root
+    mode: 0644

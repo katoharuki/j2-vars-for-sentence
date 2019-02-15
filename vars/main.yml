@@ -1,0 +1,34 @@
+---
+# vars file for j2-vars-for-sentence
+# tnsnames.oraの向き先情報
+tnsnames_oras:
+  - netservice: "netsrvicename01"
+    service_name: "servicename01"
+    hosts:
+      - ipaddr: "ipaddr"
+        port: "port"
+      - ipaddr: "ipaddr"
+        port: "port"
+    load_balance: "ON or OFF"
+    failover: "ON or OFF"
+    server: "DEDICATED or SHARED"
+  - netservice: "netsrvicename02"
+    service_name: "servicename02"
+    hosts:
+      - ipaddr: "ipaddr"
+        port: "port"
+      - ipaddr: "ipaddr"
+        port: "port"
+    load_balance: "ON or OFF"
+    failover: "ON or OFF"
+    server: "DEDICATED or SHARED"
+  - netservice: "netsrvicename03"
+    service_name: "servicename03"
+    hosts:
+      - ipaddr: "ipaddr"
+        port: "port"
+      - ipaddr: "ipaddr"
+        port: "port"
+    load_balance: "ON or OFF"
+    failover: "ON or OFF"
+    server: "DEDICATED or SHARED"

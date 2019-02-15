@@ -1,0 +1,17 @@
+{% for tnsnames_ora in tnsnames_oras %}
+{{ tnsnames_ora.netservice }} =
+(DESCRIPTION =
+  (ENABLE = BROKEN)
+  (ADDRESS_LIST =
+{% for host in tnsnames_ora.hosts %}
+    (ADDRESS = (PROTOCOL = TCP)(HOST = {{ host.ipaddr }})(PORT = {{ host.port }}))
+{% endfor %}
+    (LOAD_BALANCE = {{ tnsnames_ora.load_balance}})
+    (FAILOVER = {{ tnsnames_ora.failover }})
+  )
+  (CONNECT_DATA =
+     (SERVICE_NAME = {{ tnsnames_ora.service_name }})
+     (SERVER = {{ tnsnames_ora.server }})
+  )
+)
+{% endfor %}

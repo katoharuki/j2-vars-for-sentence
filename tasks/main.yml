@@ -1,0 +1,5 @@
+---
+# tasks file for j2-vars-for-sentence
+# tnsnames.oraの配布
+- name: set up tnsnames.ora
+  include: 01_set_up_tnsnamesora.yml
