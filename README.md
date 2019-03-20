@@ -1,4 +1,5 @@
-sandbox dockerテスト用
+・tnsnames.oraのtemplates反映を例に、j2の動きをちょろちょろと。
+sandbox dockerテスト用  
 ```
 　　[root@localhost git]# cat hosts
     [docker]
