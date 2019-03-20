@@ -1,38 +1,66 @@
-Role Name
-=========
-
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+sandbox dockerテスト用
+```
+　　[root@localhost git]# cat hosts
+    [docker]
+    hpb-queue-listener-docker
+    [root@localhost git]#
+    [root@localhost git]#
+    [root@localhost git]# cat playbook.yml
+    - hosts: docker
+      connection: docker
+      gather_facts: no
+      tasks:
+      - name: ping check
+        ping:
       roles:
-         - { role: username.rolename, x: 42 }
+        - j2-vars-for-sentence
+```
+ファイル階層  
+    `git/j2-vars-for-sentence`
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+実行後はこうなります。    
+```
+root@0d0fcdfbfb2a:/# cat /etc/tnsnames.ora
+    netsrvicename01 =
+    (DESCRIPTION =
+      (ENABLE = BROKEN)
+      (ADDRESS_LIST =
+        (ADDRESS = (PROTOCOL = TCP)(HOST = ipaddr)(PORT = port))
+        (ADDRESS = (PROTOCOL = TCP)(HOST = ipaddr)(PORT = port))
+        (LOAD_BALANCE = ON or OFF)
+        (FAILOVER = ON or OFF)
+      )
+      (CONNECT_DATA =
+         (SERVICE_NAME = servicename01)
+         (SERVER = DEDICATED or SHARED)
+      )
+    )
+    netsrvicename02 =
+    (DESCRIPTION =
+      (ENABLE = BROKEN)
+      (ADDRESS_LIST =
+        (ADDRESS = (PROTOCOL = TCP)(HOST = ipaddr)(PORT = port))
+        (ADDRESS = (PROTOCOL = TCP)(HOST = ipaddr)(PORT = port))
+        (LOAD_BALANCE = ON or OFF)
+        (FAILOVER = ON or OFF)
+      )
+      (CONNECT_DATA =
+         (SERVICE_NAME = servicename02)
+         (SERVER = DEDICATED or SHARED)
+      )
+    )
+    netsrvicename03 =
+    (DESCRIPTION =
+      (ENABLE = BROKEN)
+      (ADDRESS_LIST =
+        (ADDRESS = (PROTOCOL = TCP)(HOST = ipaddr)(PORT = port))
+        (ADDRESS = (PROTOCOL = TCP)(HOST = ipaddr)(PORT = port))
+        (LOAD_BALANCE = ON or OFF)
+        (FAILOVER = ON or OFF)
+      )
+      (CONNECT_DATA =
+         (SERVICE_NAME = servicename03)
+         (SERVER = DEDICATED or SHARED)
+      )
+    )
+```
