@@ -1,5 +1,5 @@
 ## tnsnames.oraのtemplates反映を例に、j2の動きをちょろちょろと。  
-本来は、playbook側のgroup_varsで変数は書いた方がいい。　　
+本来は、playbook側のgroup_varsで変数は書いた方がいい。  
 sandbox dockerテスト用  
 ```
 　　[root@localhost git]# cat hosts
